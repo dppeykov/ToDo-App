@@ -6,18 +6,23 @@ export default class App extends Component {
     super();
 
     this.state = {
-      userName: "Damyan"
+      userName: ""
     };
   }
 
-  changeNameHandler = e => console.log(e.target.value);
+  changeNameHandler = e => {
+    return this.setState({ userName: e.target.value });
+  };
 
   render() {
     return (
       <div className="container-fluid bg-primary text-white text-center text-sm-left p-2">
         <div className="row" style={{ margin: 0 }}>
           <div className="col-12 col-sm-7 col-md-8 col-lg-9 col-xl-10">
-            <h4 className="ml-sm-5">{this.state.userName}'s To Do List</h4>
+            <h4 className="ml-sm-3 ml-xl-5">
+              {this.state.userName ? this.state.userName + "'s " : null} To Do
+              List
+            </h4>
           </div>
           <div className="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-2">
             <input
